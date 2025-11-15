@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.neurozen</groupId>
-    <artifactId>neurozen</artifactId>
+    <artifactId>platform</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>NeuroZen Platform</name>
     <description>NeuroZen Platform application REST API.</description>
