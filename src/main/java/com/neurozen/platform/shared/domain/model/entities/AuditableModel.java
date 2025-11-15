@@ -1,10 +1,9 @@
-package com.neurozen.platform.shared.model.aggregates;
+package com.neurozen.platform.shared.domain.model.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public abstract class AuditableAbstractAggregateRoot<T extends AbstractAggregateRoot<T>> extends AbstractAggregateRoot<T> {
+public abstract class AuditableModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +23,5 @@ public abstract class AuditableAbstractAggregateRoot<T extends AbstractAggregate
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime updatedAt;
-
-    public void addDomainEvent(Object event) {
-        registerEvent(event);
-    }
 }
 
